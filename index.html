@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script type="module" src="./js/index.js"></script>
+</head>
+
+<body>
+    <header>
+        Master Memory
+    </header>
+    <main>
+        <div id="show">
+            Correct:0, Wrong:0, Total:0
+        </div>
+        <div id="best">
+
+        </div>
+        <div id="avarage">
+
+        </div>
+        <button id="btn_show">See all tries</button>
+        <button id="btn_create_deck">Create New Deck</button>
+        <button id="btn_delete">Delete Data</button>
+        <button id="btn_delete_deck">Delete Decks</button>
+        <div id="timer">
+            0.0
+        </div>
+        <form id="gameForm">
+            <input type="number" id="gameInput" max="10" min="2" value="9">
+            <select id="pack">
+                <option value="">numbers</option>
+            </select>
+            <input type="checkbox" id="bomb" name="bomb" value="bomb">
+            <label for="bomb">Bomb</label><br>
+            <button type="submit">Start new</button>
+        </form>
+
+        <section>
+
+        </section>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="data-list">No data</div>
+                <span class="close">Close</span>
+            </div>
+        </div>
+
+        <div id="createDeckModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Create New Deck</h2>
+                <form id="deckForm" onsubmit="return false;">
+                    <input type="text" id="deckName" placeholder="Deck name" required>
+                    <textarea id="deckEmojis"
+                        placeholder="Enter emojis or image URLs (min 10 items, separated by space or newline)&#10;Example: 🍎 🍊 🍌 🍉 🍓&#10;Or URLs: https://example.com/img1.jpg https://example.com/img2.jpg"
+                        required></textarea>
+                    <button type="submit">Create Deck</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Footer
+    </footer>
+</body>
+
+</html>

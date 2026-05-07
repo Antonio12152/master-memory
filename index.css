@@ -1,0 +1,294 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    padding: 20px;
+    background-color: cornflowerblue;
+}
+
+main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 10px auto;
+    width: 100%;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+#show,
+#best,
+#avarage {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    border-left: 3px solid #fff;
+}
+
+#show {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#best {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+#avarage {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+button {
+    background: cornflowerblue;
+    color: white;
+    padding: 8px 12px;
+    margin: 3px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: rgb(72, 72, 255);
+}
+
+#btn_delete {
+    background: #e74c3c;
+}
+
+#btn_delete:hover {
+    background: #c0392b;
+}
+
+#btn_delete_deck {
+    background: #e67e22;
+}
+
+#btn_delete_deck:hover {
+    background: #d35400;
+}
+
+#btn_create_deck {
+    background: #27ae60;
+}
+
+#btn_create_deck:hover {
+    background: #229954;
+}
+
+#timer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 80px;
+    margin: 5px 0;
+}
+
+#gameForm {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 8px 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+#gameForm input[type="number"],
+#gameForm select {
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: border-color 0.3s;
+}
+
+#gameForm input[type="number"]:focus,
+#gameForm select:focus {
+    outline: none;
+    border-color: cornflowerblue;
+    box-shadow: 0 0 3px rgba(100, 149, 237, 0.3);
+}
+
+#gameForm input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+#gameForm label {
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#gameForm button {
+    padding: 8px 15px;
+    font-size: 13px;
+}
+
+.card {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    background: darkseagreen;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28pt;
+    font-weight: bold;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.6s ease-in-out, background-color 0.3s 0.3s ease-in-out, color 0.3s 0.3s, background-image 0.4s 0.4s ease-in-out;
+}
+
+.card {
+    transform: rotateY(0deg);
+    background-color: darkseagreen;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+    background-color: #FDF8E6;
+    color: #000;
+    animation: cardFlip 0.6s ease-in-out;
+}
+
+.card.success {
+    background-color: greenyellow !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    section {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 20px;
+    }
+
+    .card {
+        width: 120px;
+        height: 120px;
+        font-size: 28pt;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        font-size: 20pt;
+        border-radius: 4px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    section {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        font-size: 22pt;
+        border-radius: 4px;
+    }
+}
+
+.card:hover {
+    opacity: 0.8;
+}
+
+footer {
+    padding: 20px;
+    background-color: cornflowerblue;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.game-item {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
