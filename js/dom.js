@@ -20,17 +20,14 @@ const dom = {
             el.addEventListener('click', el.clickHandler);
         }
         if (content) {
-            if (parent == elements.pack) {
-                el.innerHTML = content;
-                el.value = content;
-            } else if (parent == elements.section) {
+            if (parent == elements.section) {
                 if (content.startsWith('http')) {
                     el.style.backgroundImage = `url('${content}')`;
                 } else {
                     el.innerHTML = content;
                 }
-
             } else {
+                el.innerHTML = content;
                 el.value = content;
             }
         }

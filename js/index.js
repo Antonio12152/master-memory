@@ -34,6 +34,7 @@ function show_local() {
     elements.data_list.innerHTML = '';
 
     game.get_data().forEach((el) => {
+        console.log(el);
         dom.create(
             `
             <div class="game-item">
