@@ -20,7 +20,7 @@ const game = {
 
             el.innerHTML = '💣';
             el.className = 'card flipped success';
-            
+
             this.active_el = null;
             this.redraw();
             return;
@@ -150,7 +150,10 @@ const game = {
                 content = el.content;
             }
 
-            dom.create(content, 'div', elements.section, card_class, index + 1)
+            let card = dom.create(content, 'div', elements.section, card_class, index + 1)
+            if (el.bomb && el.success) {
+                card.innerHTML = '💣';
+            }
         });
     },
     startTimer() {
