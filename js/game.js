@@ -8,6 +8,7 @@ const game = {
     count: 0,
     wrong: 0,
     all: 0,
+    bomb: false,
     time: null,
     interval: null,
     isLocked: false,
@@ -93,13 +94,14 @@ const game = {
         this.count++
         if (this.count >= this.all) {
             this.stopTimer();
-            game.save_data(this.all, this.interval, this.count, this.wrong);
+            game.save_data(this.all, this.interval, this.count, this.wrong, this.bomb);
             game.show_avarage();
             game.find_best();
             alert('You won!');
         }
     },
     create_cards(ci, pack = null, bomb = false) {
+
         data.cards = []
         if (pack) {
             let allpack = JSON.parse(localStorage.getItem('customDecks'))
@@ -114,6 +116,7 @@ const game = {
                 data.cards.push(i);
             }
         }
+        this.bomb = bomb;
         if (bomb) {
             data.cards.push('bomb');
         }
@@ -168,9 +171,9 @@ const game = {
         let elapsedTime = Date.now() - this.time;
         this.interval = Number((elapsedTime / 1000).toFixed(1));
     },
-    save_data(all, time, count, wrong) {
+    save_data(all, time, count, wrong, bomb = false) {
         console.log(time)
-        let item = { all: all, time: time, count: count, wrong: wrong }
+        let item = { all: all, time: time, count: count, wrong: wrong, bomb: bomb }
         const old = game.get_data();
         old.push(item);
         localStorage.setItem("games", JSON.stringify(old));

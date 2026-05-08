@@ -42,6 +42,7 @@ function show_local() {
                 <p>Time: ${el.time.toFixed(1)}s</p>
                 <p>Correct: ${el.count}</p>
                 <p>Wrong: ${el.wrong}</p>
+                <p>Bomb: ${el.bomb ? 'Yes' : 'No'}</p>
             </div>
             `,
             'div',
