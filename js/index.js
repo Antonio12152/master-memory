@@ -164,13 +164,11 @@ const init = async () => {
         e.preventDefault();
         delete_local();
     });
-
     window.onclick = function (event) {
         if (event.target == elements.modal) {
             elements.modal.style.display = "none";
         }
     }
-
 }
 
 init();
